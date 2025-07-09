@@ -21,10 +21,10 @@ public class OutputWriter {
   void writeOutputFile(ArrayList<Student> studentList, ArrayList<Course> courseList) throws Exception {
     try {
       FileWriter myWriter = new FileWriter(this.outputPath);
-      for (student Student: studentList){
-        for (course Course: courseList){
-          if (Student.getStudentID() == Course.getStudentID()){
-            myWriter.write(Student.getStudentID() + "," + Student.getStudentName() + "," + Course.getCourseID() + "," + Course.calculateFinalGrade());
+      for (Student st: studentList){
+        for (Course co: courseList){
+          if (st.getStudentID().equals(co.getStudentID())){
+            myWriter.write(st.getStudentID() + ", " + st.getStudentName() + ", " + co.getCourseID() + ", " +String.format( "%.1f",co.calculateFinalGrade() )+"\n");
           }
         }
       }
