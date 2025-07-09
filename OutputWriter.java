@@ -20,7 +20,7 @@ public class OutputWriter {
 
   void writeOutputFile(ArrayList<Student> studentList, ArrayList<Course> courseList) throws Exception {
     try {
-      FileWriter myWritter = new FileWriter(this.outputPath);
+      FileWriter myWriter = new FileWriter(this.outputPath);
       for (student Student: studentList){
         for (course Course: courseList){
           if Student.getStudentID() == Course.getStudentID(){
@@ -28,7 +28,7 @@ public class OutputWriter {
           }
         }
       }
-      myWritter.close();
+      myWriter.close();
     } catch (Exception e) {
       throw e;
     }
