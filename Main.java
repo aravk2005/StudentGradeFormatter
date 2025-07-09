@@ -29,8 +29,8 @@ public class Main {
 
     }
     try {
-      output.writeOutputFile(studentList, courseList)
-    } catch (Excpetion e) {
+      output.writeOutputFile(studentList, courseList);
+    } catch (Exception e) {
       System.out.println(e.toString());
     }
   }

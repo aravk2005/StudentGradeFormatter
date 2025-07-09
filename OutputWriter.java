@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class OutputWriter {
-  private String outputPath
+  private String outputPath;
 
   OutputWriter() {
     this.outputPath = "";
@@ -23,8 +23,8 @@ public class OutputWriter {
       FileWriter myWriter = new FileWriter(this.outputPath);
       for (student Student: studentList){
         for (course Course: courseList){
-          if Student.getStudentID() == Course.getStudentID(){
-            myWritter.write(Student.getStudentID() + "," + Student.getStudentName() + "," + Course.getCourseID() + "," + Course.calculateFinalGrade())
+          if (Student.getStudentID() == Course.getStudentID()){
+            myWriter.write(Student.getStudentID() + "," + Student.getStudentName() + "," + Course.getCourseID() + "," + Course.calculateFinalGrade());
           }
         }
       }
