@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Main {
   public static void main(String[] args) {
     InputHandler input = new InputHandler("./NameFile.txt", "./CourseFile.txt");
+    OutputWriter output = new OutputWriter("./OutputFile");
     ArrayList<Student> studentList = new ArrayList<Student>();
     ArrayList<Course> courseList = new ArrayList<Course>();
     try {
@@ -26,6 +27,11 @@ public class Main {
       System.out.println(val.getTest1());
       System.out.println(val.getFinalExam());
 
+    }
+    try {
+      output.writeOutputFile(studentList, courseList)
+    } catch (Excpetion e) {
+      System.out.println(e.toString());
     }
   }
 }
