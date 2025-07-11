@@ -19,14 +19,20 @@ public class OutputWriter {
   }
 
   void writeOutputFile(ArrayList<Student> studentList, ArrayList<Course> courseList) throws Exception {
+    ArrayList<Course> stCourse; //Sets up the list of courses students are taking
+    ArrayList<Double> stGrades; //Sets up the list of grades students have in their courses
+    int i = 0; //List index for the grades
     try {
       FileWriter myWriter = new FileWriter(this.outputPath);
       for (Student st: studentList){
-        for (Course co: courseList){
-          if (st.getStudentID().equals(co.getStudentID())){
-            myWriter.write(st.getStudentID() + ", " + st.getStudentName() + ", " + co.getCourseID() + ", " +String.format( "%.1f",co.calculateFinalGrade() )+"\n");
-          }
+        i = 0; //Sets the inital index to 0 for all students
+        stCourse = st.getCourses(); //Initializes the student's courses
+        stGrades = GradeCalculator.computeFinalGrades(stCourse); //runs computeFinalGrades to initalize the student's grades
+        for (Course co: stCourse){
+          myWriter.write(st.getStudentID() + ", " + st.getStudentName() + ", " + co.getCourseID() + ", " +String.format( "%.1f",stGrades.get(1)) +"\n");
+          i++; //increases the index to access the correct grades for the course
         }
+
       }
       myWriter.close();
     } catch (Exception e) {
