@@ -15,6 +15,7 @@ public class Student {
   Student(String studentID, String studentName) {
     this.studentID = studentID;
     this.studentName = studentName;
+    this.courses = new ArrayList<>(); //Initalizes courses as a null ArrayList that can be filled
   }
 
   Student(String studentID, String studentName, ArrayList<Course> courses) {
