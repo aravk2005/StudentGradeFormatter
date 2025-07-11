@@ -28,6 +28,16 @@ public class Main {
       System.out.println(val.getFinalExam());
 
     }
+
+    //Loops through all the students to find which classes they are in
+    for (Student st: studentList){
+        for (Course co: courseList){
+          if (st.getStudentID().equals(co.getStudentID())){
+            st.setCourse(co);
+          }
+        }
+      }
+    
     try {
       output.writeOutputFile(studentList, courseList);
     } catch (Exception e) {
