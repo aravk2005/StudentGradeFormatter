@@ -19,15 +19,17 @@ public class OutputWriter {
   }
 
   void writeOutputFile(ArrayList<Student> studentList, ArrayList<Course> courseList) throws Exception {
-    ArrayList<Double> stGrades = GradeCalculator.computeFinalGrades(studentList); //Sets up the list of grades students have in their courses
-    int i;//List index for the grades
+    ArrayList<Double> stGrades = GradeCalculator.computeFinalGrades(studentList); // Sets up the list of grades students
+                                                                                  // have in their courses
+    int i;// List index for the grades
     try {
       FileWriter myWriter = new FileWriter(this.outputPath);
-      for (Student st: studentList){
-        i = 0; //Sets the inital index to 0 for all students
-        for (Course co: st.getCourses){
-          myWriter.write(st.getStudentID() + ", " + st.getStudentName() + ", " + co.getCourseID() + ", " +String.format( "%.1f",stGrades.get(i)) +"\n");
-          i++; //increases the index to access the correct grades for the course
+      for (Student st : studentList) {
+        i = 0; // Sets the inital index to 0 for all students
+        for (Course co : st.getCourses()) {
+          myWriter.write(st.getStudentID() + ", " + st.getStudentName() + ", " + co.getCourseID() + ", "
+              + String.format("%.1f", stGrades.get(i)) + "\n");
+          i++; // increases the index to access the correct grades for the course
         }
       }
       myWriter.close();
