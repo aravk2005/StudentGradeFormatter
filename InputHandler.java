@@ -67,6 +67,8 @@ public class InputHandler {
 
   void readCourseFile(ArrayList<Course> courseList) throws Exception {
     try {
+      int i;
+      boolean negative = false;
       File courseFile = new File(this.courseFilePath);
       Scanner myReader = new Scanner(courseFile);
       while (myReader.hasNextLine()) {
@@ -74,7 +76,7 @@ public class InputHandler {
         String[] courseInfo = data.split(",");
 
         //Start of new code, O(n)
-        int i = 0;
+        i = 0;
         boolean added = false;
         //If the list is empty, add element to it
         if (courseList.isEmpty()){
@@ -100,6 +102,13 @@ public class InputHandler {
                 Integer.parseInt(courseInfo[3].trim()), Integer.parseInt(courseInfo[4].trim()),
                 Integer.parseInt(courseInfo[5].trim())));
         }
+
+        for (i = 2; i<=5; i++){
+          if (!(courseInfo[i].trim().charAt(0) >='0' && courseInfo[i].trim().charAt(0) <='9')){
+            System.out.println("Error, negative value found");
+            courseList.clear();
+            negative = true;
+          }
         //End of new code
         
         //Old code, just appends to end of list O(1)
