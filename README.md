@@ -21,3 +21,6 @@ Created by Arav, Pedro, Valence, and Isaac
 - Generates a formatted output file showing student information and final grades.
 
 ---
+## How to Run?
+
+- Navigate to Main.java and hit run Java code! The output file should show up in your project workspace. 
