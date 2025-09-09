@@ -1,0 +1,2 @@
+#Ignore potential temporary files and directories
+*.tmp   
